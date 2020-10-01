@@ -1,0 +1,35 @@
+.card {
+  padding: 2px auto;
+  max-width: 40%;
+  border: 1px solid gray;
+}
+.scard {
+  border: 1px solid gray;
+  max-width: 40%;
+  margin: 5px;
+  padding: 5px 50px;
+  height: auto;
+}
+.body {
+  margin: 1.25rem;
+}
+.maindiv {
+  margin: 0px auto;
+  width: 75%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+span {
+  color: green;
+}
+.indexs {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 7px;
+  font-weight: 200;
+}
+.nav {
+  margin-left: 45%;
+  margin-bottom: 30px;
+}
