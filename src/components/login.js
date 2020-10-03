@@ -15,7 +15,7 @@ function Login() {
     }, [])
 
     const loninData = () => {
-        axios.post('http://localhost:3000/login', {
+        axios.post('http://localhost:8080/login', {
             Username, Password
         }).then((data) => {
             window.alert('Login succesfuuly')

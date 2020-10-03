@@ -10,7 +10,7 @@ function Myprofile() {
 
     // ***** Update Data *****
     const UpdateData = () => {
-        axios.patch('http://localhost:3000/updateuser', {
+        axios.patch('http://localhost:8080/updateuser', {
             Username, Emailid
         }, {
             headers: {

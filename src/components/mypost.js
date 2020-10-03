@@ -11,7 +11,7 @@ function Mypost() {
 
     // ******** Getting Post *****
     useEffect(() => {
-        axios.get('http://localhost:3000/mypost', {
+        axios.get('http://localhost:8080/mypost', {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('jwt')
             }
@@ -26,7 +26,7 @@ function Mypost() {
 
     // ***** Delete Post ***
     const deletePost = (id) => {
-        axios.delete(`http://localhost:3000/deletepost/${id}`, {
+        axios.delete(`http://localhost:8080/deletepost/${id}`, {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('jwt')
             }

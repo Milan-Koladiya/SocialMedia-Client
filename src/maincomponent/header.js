@@ -16,7 +16,7 @@ function Header(props) {
 
     // ***** Logout ****
     const Logout = () => {
-        axios.post('http://localhost:3000/logout', {
+        axios.post('http://localhost:8080/logout', {
             key: "value"
         }, {
             headers: {

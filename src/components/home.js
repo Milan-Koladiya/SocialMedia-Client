@@ -20,7 +20,7 @@ function Home() {
 
   const getRecords = (pageNumber) => {
     axios
-      .get(`http://localhost:3000/allpost?page=${pageNumber}`)
+      .get(`http://localhost:8080/allpost?page=${pageNumber}`)
       .then((data) => {
         setactivePage(pageNumber);
         setPosts(data.data.data);
@@ -35,7 +35,7 @@ function Home() {
   // Delete Post
   const deletePost = (id) => {
     axios
-      .delete(`http://localhost:3000/deletepost/${id}`, {
+      .delete(`http://localhost:8080/deletepost/${id}`, {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("jwt"),
         },

@@ -13,7 +13,7 @@ function Signup() {
     const sendData = (e) => {
         e.preventDefault()
         console.log('signrouter')
-        axios.post('http://localhost:3000/signup', {
+        axios.post('http://localhost:8080/signup', {
             Username, Emailid, Password, avtar: Image
         }).then(() => {
             window.alert('Signup successfully')
