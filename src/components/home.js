@@ -5,6 +5,7 @@ import axios from "axios";
 import style from "../styles/home.module.css";
 import Pagination from "react-js-pagination";
 import { useHistory } from "react-router-dom";
+import API from "../apiconfi";
 
 function Home() {
   const [posts, setPosts] = useState([]);
@@ -20,7 +21,7 @@ function Home() {
 
   const getRecords = (pageNumber) => {
     axios
-      .get(`http://localhost:8080/allpost?page=${pageNumber}`)
+      .get(`${API}/allpost?page=${pageNumber}`)
       .then((data) => {
         setactivePage(pageNumber);
         setPosts(data.data.data);
@@ -35,7 +36,7 @@ function Home() {
   // Delete Post
   const deletePost = (id) => {
     axios
-      .delete(`http://localhost:8080/deletepost/${id}`, {
+      .delete(`${API}/deletepost/${id}`, {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("jwt"),
         },
