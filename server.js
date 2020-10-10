@@ -4,8 +4,10 @@ const app = express();
 
 const PORT = process.env.PORT || 8080;
 
-app.get("/ping", (req, res) => {
-  res.send("Milan-Koladiya");
+express.static(path.join(__dirname, "public"));
+
+app.get("/", (req, res) => {
+  res.sendFile("index.html");
 });
 
 if (process.env.NODE_ENV === "production") {
