@@ -3,6 +3,7 @@ import axios from "axios";
 import Header from "../maincomponent/header";
 import { useHistory } from "react-router-dom";
 import API from "../apiconfi";
+import { toast } from "react-toastify";
 
 function Myprofile() {
   const history = useHistory();
@@ -26,13 +27,13 @@ function Myprofile() {
       )
       .then((res) => JSON.parse(res.config.data))
       .then((data) => {
-        window.alert("Update successfully");
+        toast.success("Update successfully");
         localStorage.setItem("Username", data.Username);
         localStorage.setItem("Emailid", data.Emailid);
         history.push("/myprofile");
       })
       .catch((err) => {
-        window.alert(err);
+        toast.error("There is some error")
       });
   };
   return (

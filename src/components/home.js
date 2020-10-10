@@ -6,6 +6,7 @@ import style from "../styles/home.module.css";
 import Pagination from "react-js-pagination";
 import { useHistory } from "react-router-dom";
 import API from "../apiconfi";
+import { toast } from "react-toastify";
 
 function Home() {
   const [posts, setPosts] = useState([]);
@@ -29,7 +30,7 @@ function Home() {
         setgetPost(false);
       })
       .catch((err) => {
-        window.alert(err);
+        toast.error("Post not found")
       });
   };
 
@@ -42,7 +43,7 @@ function Home() {
         },
       })
       .then(() => {
-        window.alert("delete successfully");
+        toast.success("delete successfully");
         history.push({ pathname: "/addpost" });
       })
       .catch((err) => {

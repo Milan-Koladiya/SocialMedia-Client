@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 import Home from "./components/home";
 import Mypost from "./components/mypost";
 import Myprofile from "./components/myprofile";
@@ -26,6 +27,7 @@ function App() {
 
   return (
     <div className="App">
+      <ToastContainer />
       {/* <Header IsLogin={IsLogin} /> */}
       <Switch>
         <Route path="/" exact component={Home} />

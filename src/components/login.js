@@ -3,6 +3,7 @@ import axios from "axios";
 import Header from "../maincomponent/header";
 import { useHistory } from "react-router-dom";
 import API from "../apiconfi";
+import { toast } from "react-toastify";
 
 function Login() {
   const [Username, setUsername] = useState();
@@ -22,7 +23,7 @@ function Login() {
         Password,
       })
       .then((data) => {
-        window.alert("Login succesfuuly");
+        toast.success("Login succesfully");
         history.push("/");
         const { Username, Emailid } = data.data.user;
         localStorage.setItem("jwt", data.data.token);
@@ -30,7 +31,7 @@ function Login() {
         localStorage.setItem("Emailid", Emailid);
       })
       .catch((err) => {
-        window.alert("Username Or Password invalid");
+        toast.error("Username Or Password invalid");
       });
   };
 

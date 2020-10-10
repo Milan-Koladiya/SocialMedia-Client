@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import API from "../apiconfi";
+import { toast } from "react-toastify";
 
 console.log("............", API);
 
@@ -36,7 +37,9 @@ function Header(props) {
         history.push("/login");
       })
       .catch((err) => {
-        window.alert("You are not logged in");
+        toast.warn("You are login to 24 hour ");
+        history.push("/login");
+        localStorage.clear();
       });
   };
   return (

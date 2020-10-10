@@ -4,6 +4,7 @@ import Header from "../maincomponent/header";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import API from "../apiconfi";
+import { toast } from "react-toastify";
 
 function Mypost() {
   const [Mypost, setMypost] = useState([]);
@@ -24,7 +25,7 @@ function Mypost() {
       })
       .catch((err) => {
         console.log(err);
-        window.alert("You are not loggedin");
+        toast.warn("You are not loggedin");
       });
   }, []);
 
@@ -37,10 +38,10 @@ function Mypost() {
         },
       })
       .then(() => {
-        window.alert("Post delete Successfully");
+        toast.success("Post delete Successfully");
       })
       .catch((err) => {
-        window.alert(err);
+        toast.error("Some error occured")
       });
   };
 

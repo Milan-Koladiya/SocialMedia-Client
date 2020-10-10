@@ -3,6 +3,7 @@ import axios from "axios";
 import Header from "../maincomponent/header";
 import { useHistory } from "react-router-dom";
 import API from "../apiconfi";
+import { toast } from "react-toastify";
 
 function Signup() {
   const [Username, setUsername] = useState("");
@@ -12,8 +13,8 @@ function Signup() {
   const history = useHistory();
 
   const sendData = (e) => {
-    e.preventDefault();
-    console.log("signrouter");
+    console.log(Username, Emailid, Password, Image);
+
     axios
       .post(`${API}/signup`, {
         Username,
@@ -21,14 +22,19 @@ function Signup() {
         Password,
         avtar: Image,
       })
-      .then(() => {
-        window.alert("Signup successfully");
+      .then((data) => {
+        console.log(data);
+        if (data.status == 204) {
+          return toast.error("Plese Choose diffrent username");
+        }
+        toast.success("Successfully login to our site");
         history.push("/login");
       })
-      .catch((err) => {
-        console.log(err);
-        window.alert(err);
+      .catch((error) => {
+        console.log(error);
+        toast.error("Please Provide valid information");
       });
+    e.preventDefault();
   };
   return (
     <Fragment>
@@ -38,7 +44,7 @@ function Signup() {
           style={{ maxWidth: "60%", padding: "0px auto" }}
           className="bg-white rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10"
         >
-          <form onSubmit={() => sendData()}>
+          <form onSubmit={(e) => sendData(e)}>
             <h1 className="text-gray-900 text-lg mb-1 font-medium title-font">
               Login to our Site
             </h1>

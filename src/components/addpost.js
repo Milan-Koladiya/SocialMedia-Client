@@ -16,20 +16,10 @@ function Addpost(props) {
   const history = useHistory();
   const location = useLocation();
 
-  const notify = () =>
-    toast.success("Post saved Successfully...", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
   //**** Addpost */
   const sendPost = () => {
     if (!Title || !Body) {
-      return window.alert("please add both field");
+      return toast.warn("please add both field");
     }
 
     axios
@@ -46,7 +36,8 @@ function Addpost(props) {
         }
       )
       .then(() => {
-        notify();
+        toast.success("Post saved Successfully...");
+        history.push("/");
       })
       .catch((err) => {
         console.log(err);
@@ -80,18 +71,17 @@ function Addpost(props) {
         }
       )
       .then(() => {
-        window.alert("Post Updated succssfully");
+        toast.success("Post Updated succssfully");
         history.push("/");
       })
       .catch((err) => {
         console.log(err);
-        window.alert("Data not Found");
+        toast.error("Data not Found");
       });
   };
 
   return (
     <Fragment>
-      <ToastContainer />
       <Header />
       {location.state ? (
         <div className="container px-5 py-24 mx-auto flex">
