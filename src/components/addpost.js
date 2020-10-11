@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "../styles/addpost.css";
 import Header from "../maincomponent/header";
 import { useHistory, useLocation } from "react-router-dom";
 import API from "../apiconfi";
@@ -86,7 +87,7 @@ function Addpost(props) {
       {location.state ? (
         <div className="container px-5 py-24 mx-auto flex">
           <div
-            style={{ maxWidth: "60%", padding: "0px auto" }}
+            style={{ padding: "0px auto" }}
             className="bg-white rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10"
           >
             <h1 className="text-gray-900 text-lg mb-1 font-medium title-font">

@@ -7,7 +7,7 @@
   border: 1px solid gray;
   max-width: 40%;
   margin: 5px;
-  padding: 5px 50px;
+  padding: 5px 10px;
   height: auto;
 }
 .body {
@@ -15,7 +15,7 @@
 }
 .maindiv {
   margin: 0px auto;
-  width: 75%;
+  width: 80%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -32,4 +32,18 @@ span {
 .nav {
   margin-left: 45%;
   margin-bottom: 30px;
+}
+
+@media screen and (max-width: 426px) {
+  .scard {
+    border: 1px solid gray;
+    max-width: 96%;
+    margin: 5px auto;
+    padding: 5px 0px;
+    height: auto;
+  }
+  .nav {
+    margin-left: 22%;
+    margin-bottom: 30px;
+  }
 }

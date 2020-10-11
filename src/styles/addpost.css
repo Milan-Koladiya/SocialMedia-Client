@@ -1,0 +1,15 @@
+.w-full {
+  max-width: 60% !important;
+}
+@media screen and (max-width: 768px) {
+  .w-full {
+    max-width: 100% !important;
+  }
+  .p-8 {
+    padding: 0rem;
+  }
+  .py-24 {
+    padding-top: 0rem;
+    padding-bottom: 5rem;
+  }
+}
