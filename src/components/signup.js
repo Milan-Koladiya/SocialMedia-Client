@@ -9,18 +9,23 @@ function Signup() {
   const [Username, setUsername] = useState("");
   const [Emailid, setEmailid] = useState("");
   const [Password, setPassword] = useState("");
-  const [Image, setImage] = useState("");
+  const [Image, setImage] = useState(null);
   const history = useHistory();
 
   const sendData = (e) => {
     console.log(Username, Emailid, Password, Image);
-
+    console.log(Image);
+    const formData = new FormData();
+    formData.append("Username", Username);
+    formData.append("Emailid", Emailid);
+    formData.append("Password", Password);
+    formData.append("Image", Image);
+    console.log("formData", formData);
     axios
-      .post(`${API}/signup`, {
-        Username,
-        Emailid,
-        Password,
-        avtar: Image,
+      .post(`${API}/signup`, formData, {
+        headers: {
+          "content-type": "multipart/form-data",
+        },
       })
       .then((data) => {
         console.log(data);
@@ -76,7 +81,7 @@ function Signup() {
             <h3>Upload Profile</h3>
             <input
               type="file"
-              onChange={(e) => setImage(e.target.files[0].name)}
+              onChange={(e) => setImage(e.target.files[0])}
               className="bg-white rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4"
             />
             <br />

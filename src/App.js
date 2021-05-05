@@ -20,6 +20,7 @@ function App() {
   // }, [])
 
   if (localStorage.getItem("Username")) {
+    console.log("run");
     history.push("/");
   } else {
     history.push("/login");
